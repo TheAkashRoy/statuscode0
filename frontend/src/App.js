@@ -1,14 +1,22 @@
-import logo from './logo.svg';
+import Landing from './components/Landing';
 import './App.css';
+import bg from "../src/assets/bg.png";
+import {Routes, Route} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-    <h1 className="text-3xl bg-cyan-600 font-bold underline">
-    Hello world!
-  </h1>
+    <>
+    <div className=' bg-cover bg-no-repeat bg-center h-screen hide-scrollbar '	
+    style={{ backgroundImage: `url(${bg})` }}>
+       
       
-    </div>
+    
+    <Routes>
+      <Route path="/" element={<Landing />} />
+      </Routes>
+      </div>
+    </>
+   
   );
 }
 
