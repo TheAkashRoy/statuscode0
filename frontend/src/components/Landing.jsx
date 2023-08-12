@@ -7,15 +7,15 @@ const Landing = () => {
   const {loginWithRedirect} = useAuth0();
 
   return (
-    <div>
-   <div className='bg-gray-800 flex m-8 justify-between items-center'>
-   <h1>ENERGYLO</h1>
-   <div>
-   <button>Buy</button>
-   <button>Sell</button>
+    <div className='p-4'>
+   <div className='bg-gray-900 flex p-4 justify-between items-center rounded-full'>
+   <h1 className='text-white font-white text-3xl'>ENERGYLO</h1>
+   <div className='flex gap-3'>
+   <button className='text-white font-white text-xl'>Buy</button>
+   <button className='text-white font-white text-xl'>Sell</button>
    {
     isAuthenticated?(
-      <button onClick={()=>logout()} text-xl font-semibold bg-white p-3>Logout</button>      ):(
+      <button onClick={()=>logout()} className='text-xl font-semibold bg-white p-3'>Logout</button>      ):(
         <button onClick={()=>loginWithRedirect()}
         className=' text-xl font-semibold bg-white p-3'>
         Login</button>    )
