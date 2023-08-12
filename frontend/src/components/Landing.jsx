@@ -8,20 +8,22 @@ const Landing = () => {
 
   return (
     <div className='p-4'>
-   <div className='bg-gray-900 flex p-4 justify-between items-center rounded-full'>
-   <h1 className='text-white font-white text-3xl'>ENERGYLO</h1>
-   <div className='flex gap-3'>
-   <button className='text-white font-white text-xl'>Buy</button>
-   <button className='text-white font-white text-xl'>Sell</button>
+   <div className='bg-gray-900 flex p-2 justify-between items-center rounded-full'>
+   <h1 className='text-white font-white text-3xl px-4'>ENERGYLO</h1>
+   
+   
    {
     isAuthenticated?(
-      <button onClick={()=>logout()} className='text-xl font-semibold bg-white p-3'>Logout</button>      ):(
+      <div className='flex gap-3'>
+      <button className='text-white font-white text-xl'>Buy</button>
+   <button className='text-white font-white text-xl'>Sell</button>
+      <button onClick={()=>logout()} className='text-xl font-semibold bg-white p-3'>Logout</button>  </div>     ):(
         <button onClick={()=>loginWithRedirect()}
         className=' text-xl font-semibold bg-white p-3'>
         Login</button>    )
   }
    
-   </div>
+  
    </div>
     </div>
   )

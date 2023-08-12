@@ -2,7 +2,8 @@ import Landing from './components/Landing';
 import './App.css';
 import bg from "../src/assets/bg.png";
 import {Routes, Route} from "react-router-dom";
-
+import Buy from "../src/pages/Buy";
+import Sell from "../src/pages/Sell";
 function App() {
   return (
     <>
@@ -13,6 +14,8 @@ function App() {
     
     <Routes>
       <Route path="/" element={<Landing />} />
+      <Route path="/buy" element={<Buy />} />
+      <Route path="/sell" element={<Sell/>}/>
       </Routes>
       </div>
     </>
