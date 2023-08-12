@@ -4,7 +4,7 @@ import pymongo
 
 # cySFrQASlOiQf2pt
 
-mongo_URI = "mongodb+srv://9akashroy:cySFrQASlOiQf2pt@cluster0.hxo7td9.mongodb.net/?retryWrites=true&w=majority"
+mongo_URI = "mongodb+srv://9akashroy:cySFrQASlOiQf2@cluster0.hxo7td9.mongodb.net/?retryWrites=true&w=majority"
 
 app = Flask(__name__)
 CORS(app)
