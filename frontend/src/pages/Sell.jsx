@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import Web3 from "web3";
 import contractABI from "../abi/abi.json";
 import axios from "axios";
+import {AiOutlineSync} from "react-icons/ai"
 const Sell = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
   const {logout} = useAuth0();
@@ -18,6 +19,7 @@ const Sell = () => {
   const [av, setAv] = useState(0);
   const [fv, setFv] = useState(0);
   const [isUser, setIsuser] = useState("False");
+
 
   async function loadWeb3() {
     if (window.ethereum) {
@@ -107,7 +109,7 @@ console.log("User details",user);
   return (
     <div className='p-4'>
     <div className='bg-black shadow-2xl flex p-3 justify-between items-center rounded-full'>
-   <h1 className='text-white font-white text-xl font-bold px-3'>ENERGYLO.</h1>
+   <h1 className='text-white font-white text-xl font-bold px-3'><a href="/">ENERGYLO.</a></h1>
     
    {
     isAuthenticated &&(
@@ -122,7 +124,7 @@ console.log("User details",user);
           <h2 className='text-white'>{user.name}</h2>
         </div>
      )*/}
-      <div className="m-16  font-semibold ">
+      <div className="mt-10 ml-16  font-semibold ">
       <div className='flex flex-col gap-5'>
       {isConnected ? (
         <>
@@ -132,8 +134,23 @@ console.log("User details",user);
       ) : (
         <button onClick={loadWeb3} className=' text-sm p-3 rounded-full bg-white font-semibold w-[150px]'>Connect wallet</button>
       )}
-        <div>
-        
+        <div className='flex flex-col gap-2  bg-gray-100 bg-opacity-30 backdrop-blur-md p-6 rounded-lg items-center w-[35vw] h-[60vh] justify-center border-[0.5px] border-white'>
+        <button  className='bg-black text-white font-semibold p-3 rounded-full flex justify-center w-[50vw] md:w-[25vw]'>
+         <span className='flex gap-3 flex-row items-center'>Sync with Smart Meter<AiOutlineSync className="text-white "/></span> 
+          </button>
+          <p  className='text-white font-semibold p-2 rounded-full flex justify-start w-[50vw] md:w-[25vw]'>
+          Actual value:
+          </p>
+          <p  className='text-white font-semibold p-2 rounded-full flex justify-start w-[50vw] md:w-[25vw]'>
+        False Value:
+          </p>
+          <input type="number"  className='bg-white text-black font-semibold p-2 rounded-full flex justify-center w-[50vw] md:w-[25vw]'
+          placeholder='Set Price'>
+          </input>
+          <button  className='bg-black text-white font-semibold p-3 rounded-full flex justify-center w-[50vw] md:w-[25vw]'>
+         <p className='flex gap-3 flex-row items-center'>Let<span className='text-pink-600 font-bold'>AI</span>set your price</p> 
+          </button>
+          <button className='bg-pink-600 shadow-xl text-white font-semibold rounded-full p-2 w-[10vw] items-center'>Update</button>
         </div>
       </div>
       </div>

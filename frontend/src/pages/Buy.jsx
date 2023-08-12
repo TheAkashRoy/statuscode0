@@ -77,7 +77,7 @@ const Buy = () => {
   return (
     <div className='p-4 '>
     <div className='bg-gray-900 flex p-2 justify-between items-center rounded-full'>
-    <h1 className='text-white font-white text-3xl px-4'>ENERGYLO</h1>
+    <h1 className='text-white font-white text-xl font-bold px-3'>ENERGYLO.</h1>
     {
      isAuthenticated &&(
        <div className='flex gap-3'>
@@ -86,9 +86,9 @@ const Buy = () => {
        <button onClick={()=>logout()} className='text-xl font-semibold bg-white p-3'>Logout</button>  </div>     )
    }
     </div>
-   <div className=''>
-   <table className="mt-4 w-[75%] bg-gray-600 font-semibold text-white border-2 border-white">
-  <thead className='border-2 border-white'>
+   <div className='flex flex-col items-center my-8'>
+   <table className="mt-4 w-[75%] bg-gray-600 font-semibold text-white border-[1px] border-white">
+  <thead className='border-[1px] border-white'>
     <tr>
       <th className="p-2">Wallet Address</th>
       <th className="p-2">Price</th>
@@ -104,7 +104,7 @@ const Buy = () => {
         <td className="py-2 px-6 text-center">{seller.walletId}</td>
         <td className="p-2 text-center">{Number(seller.price)}</td>
         <td className="p-2 text-center"><span>{Number(seller.falseValue)}</span></td>
-        <td className="p-2 text-center"><button onClick={handleBuy(seller.walletId,seller.price,seller.falseValue)} className='mx-3 text-black bg-white p-1 rounded-full font-white '>Buy now</button></td>
+        <td className="p-2 text-center"><button onClick={handleBuy(seller.walletId,seller.price,seller.falseValue)} className='mx-3 text-black bg-white py-1 px-2 text-sm rounded-full font-white '>Buy now</button></td>
 
       </tr>
     ))}
