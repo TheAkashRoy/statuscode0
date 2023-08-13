@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import Web3 from "web3";
 import contractABI from "../abi/abi.json";
 import axios from "axios";
+import illu from "../assets/illu.png";
 import {AiOutlineSync} from "react-icons/ai"
 const Sell = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -134,8 +135,9 @@ console.log("User details",user);
         </div>
      )*/}
       <div className="mt-10 ml-16  font-semibold ">
-      <div className='flex flex-col gap-5'>
-      {isConnected ? (
+      <div className='flex flex-row gap-5'>
+        <div className='flex flex-col gap-5'>
+        {isConnected ? (
         <>
           <button onClick={handleDisconnect} className=' text-sm p-3 rounded-full bg-white font-bold w-[150px]'>Disconnect Wallet</button>
           <p className='font-semibold text-white '>Account: {account}</p>
@@ -143,8 +145,8 @@ console.log("User details",user);
       ) : (
         <button onClick={loadWeb3} className=' text-sm p-3 rounded-full bg-white font-semibold w-[150px]'>Connect wallet</button>
       )}
-        <div className='flex flex-col gap-2  bg-gray-100 bg-opacity-30 backdrop-blur-md p-6 rounded-lg items-center w-[35vw] h-[60vh] justify-center border-[0.5px] border-white'>
-        <button  className='bg-black text-white font-semibold p-3 rounded-full flex justify-center w-[50vw] md:w-[25vw]'>
+        <div className='flex flex-col gap-2  bg-gray-100 bg-opacity-30 backdrop-blur-md p-6 rounded-lg items-center w-[33vw] h-[65vh] justify-center border-[0.5px] border-white'>
+        <button  className='bg-black text-white font-semibold p-3 rounded-full flex justify-center w-[50vw] md:w-[25vw] hover:bg-slate-950'>
          <span className='flex gap-3 flex-row items-center' onClick={handleSync}>Sync with Smart Meter<AiOutlineSync className="text-white "/></span> 
           </button>
           <p  className='text-white font-semibold p-2 rounded-full flex justify-start w-[50vw] md:w-[25vw]'>
@@ -156,11 +158,15 @@ console.log("User details",user);
           <input type="number" onChange={(e)=>setPrice(e.target.value)} className='bg-white text-black font-semibold p-2 rounded-full flex justify-center w-[50vw] md:w-[25vw]'
           placeholder='Set Price'>
           </input>
-          <p className='font-semibold text-white '>OR</p>
-          <button  className='bg-black text-white font-semibold p-3 rounded-full flex justify-center w-[50vw] md:w-[25vw]'>
+          <p className='font-semibold text-white'>OR</p>
+          <button  className='bg-black text-white font-semibold p-3 rounded-full flex justify-center w-[50vw] md:w-[25vw] hover:bg-slate-950'>
          <p className='flex gap-3 flex-row items-center'>Let<span className='text-pink-600 font-bold'>AI</span>set your price</p> 
           </button>
-          <button type="submit" onClick={handleUpdate} className='bg-pink-600 shadow-xl text-white font-semibold rounded-full p-2 w-[10vw] items-center'>Update</button>
+          <button type="submit" onClick={handleUpdate} className='bg-pink-600 shadow-xl text-white font-semibold rounded-full p-2 w-[10vw] items-center mt-2 hover:bg-pink-700'>Update</button>
+        </div>
+        </div>
+        <div className='flex justify-center items-center'>
+          <img src={illu} alt="illustration" className='h-max w-[55%] mt-10'/>
         </div>
       </div>
       </div>
