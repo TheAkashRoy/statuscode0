@@ -1,0 +1,206 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_walletId",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_actualValue",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_falseValue",
+				"type": "uint256"
+			}
+		],
+		"name": "addUser",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "walletId",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "actualValue",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "falseValue",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct UserStorage.User",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "deleteUser",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_walletId",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_newPrice",
+				"type": "uint256"
+			}
+		],
+		"name": "updatePriceByAddress",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_index",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_newActualValue",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_newFalseValue",
+				"type": "uint256"
+			}
+		],
+		"name": "updateUserValues",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getAllUsers",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "walletId",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "actualValue",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "falseValue",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct UserStorage.User[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getUserCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getUserValuesByAddress",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "users",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "price",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "walletId",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "actualValue",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "falseValue",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
