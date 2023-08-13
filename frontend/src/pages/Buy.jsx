@@ -98,18 +98,18 @@ window.web3.eth.sendTransaction(txObject, (error, transactionHash) => {
         )}
       </div>
       <div className="">
-        <table className="mt-4 w-[75%] bg-gray-600 font-semibold text-white border-2 border-white">
+        <table className="mt-4 w-[75%] bg-gray-700 font-semibold text-white border border-white">
           <thead className="border-2 border-white">
             <tr>
-              <th className="p-2">Wallet Address</th>
-              <th className="p-2">Price</th>
-              <th className="p-2">Available</th>
-              <th className="p-2">Sales</th>
+              <th className="p-2 border border-gray-400">Wallet Address</th>
+              <th className="p-2 border border-gray-400">Price</th>
+              <th className="p-2 border border-gray-400">Available</th>
+              <th className="p-2 border border-gray-400">Sales</th>
             </tr>
           </thead>
           <tbody>
             {seller.map((seller, index) => (
-              <tr key={index} className="bg-gray-700">
+              <tr key={index} className="bg-gray-800">
                 <td className="py-2 px-6 text-center">{seller.walletId}</td>
                 <td className="p-2 text-center">{Number(seller.price)}</td>
                 <td className="p-2 text-center">
@@ -122,7 +122,7 @@ window.web3.eth.sendTransaction(txObject, (error, transactionHash) => {
                       seller.price,
                       seller.falseValue
                     )}
-                    className="mx-3 text-black bg-white p-1 rounded-full font-white "
+                    className="mx-3 text-black bg-white p-2 rounded-full font-white "
                   >
                     Buy now
                   </button>

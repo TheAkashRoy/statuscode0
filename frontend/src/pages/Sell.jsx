@@ -137,8 +137,8 @@ console.log("User details",user);
       <div className='flex flex-col gap-5'>
       {isConnected ? (
         <>
-          <button onClick={handleDisconnect} className=' text-sm p-3 rounded-full bg-white font-semibold w-[150px]'>Disconnect Wallet</button>
-          <p>Account: {account}</p>
+          <button onClick={handleDisconnect} className=' text-sm p-3 rounded-full bg-white font-bold w-[150px]'>Disconnect Wallet</button>
+          <p className='font-semibold text-white '>Account: {account}</p>
         </>
       ) : (
         <button onClick={loadWeb3} className=' text-sm p-3 rounded-full bg-white font-semibold w-[150px]'>Connect wallet</button>
@@ -156,6 +156,7 @@ console.log("User details",user);
           <input type="number" onChange={(e)=>setPrice(e.target.value)} className='bg-white text-black font-semibold p-2 rounded-full flex justify-center w-[50vw] md:w-[25vw]'
           placeholder='Set Price'>
           </input>
+          <p className='font-semibold text-white '>OR</p>
           <button  className='bg-black text-white font-semibold p-3 rounded-full flex justify-center w-[50vw] md:w-[25vw]'>
          <p className='flex gap-3 flex-row items-center'>Let<span className='text-pink-600 font-bold'>AI</span>set your price</p> 
           </button>
