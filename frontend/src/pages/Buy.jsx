@@ -76,53 +76,43 @@ window.web3.eth.sendTransaction(txObject, (error, transactionHash) => {
 
   return (
     <div className="p-4 ">
-      <div className="bg-gray-900 flex p-2 justify-between items-center rounded-full">
-        <h1 className="text-white font-white text-3xl px-4">ENERGYLO</h1>
-        {isAuthenticated && (
-          <div className="flex gap-3">
-            <Link to="/">
-              {" "}
-              <button className="text-white font-white text-xl">Home</button>
-            </Link>
-            <Link to="/sell">
-              {" "}
-              <button className="text-white font-white text-xl">Sell</button>
-            </Link> 
-            <button
-              onClick={() => logout()}
-              className="text-xl font-semibold bg-white p-3"
-            >
-              Logout
-            </button>{" "}
-          </div>
-        )}
-      </div>
-      <div className="">
-        <table className="mt-4 w-[75%] bg-gray-700 font-semibold text-white border border-white">
-          <thead className="border-2 border-white">
+    <div className='bg-black shadow-2xl flex p-3 justify-between items-center rounded-full'>
+    <h1 className='text-white font-white text-xl font-bold px-3'><a href="/">ENERGYLO.</a></h1>
+     
+    {
+     isAuthenticated &&(
+       <div className='flex gap-3 px-3'>
+      <Link to="/"> <button className=' text-sm px-4 py-1 rounded-full bg-white font-semibold'>Home</button></Link>
+    <Link to="/sell"><button className=' text-sm bg-white font-semibold px-4 py-1 rounded-full'>Sell</button></Link>
+       <button onClick={()=>logout()} className='text-sm rounded-full  font-semibold bg-white px-2'>Logout</button></div>      )
+   } 
+    </div>
+      <div className="flex justify-center items-center">
+        <table className=" w-[75%] bg-gray-700 font-semibold  mt-28 text-white border border-white">
+          <thead className="">
             <tr>
-              <th className="p-2 border border-gray-400">Wallet Address</th>
-              <th className="p-2 border border-gray-400">Price</th>
-              <th className="p-2 border border-gray-400">Available</th>
-              <th className="p-2 border border-gray-400">Sales</th>
+              <th className="p-2 border  border-gray-600">Wallet Address</th>
+              <th className="p-2 border  border-gray-600">Price</th>
+              <th className="p-2 border  border-gray-600">Available</th>
+              <th className="p-2 border  border-gray-600">Sales</th>
             </tr>
           </thead>
           <tbody>
             {seller.map((seller, index) => (
               <tr key={index} className="bg-gray-800">
-                <td className="py-2 px-6 text-center">{seller.walletId}</td>
-                <td className="p-2 text-center">{Number(seller.price)}</td>
-                <td className="p-2 text-center">
+                <td className="py-2 px-6 text-center border  border-gray-600">{seller.walletId}</td>
+                <td className="p-2 text-center border  border-gray-600">{Number(seller.price)/Math.pow(10,18)}</td>
+                <td className="p-2 text-center border  border-gray-600">
                   <span>{Number(seller.falseValue)}</span>
                 </td>
-                <td className="p-2 text-center">
+                <td className="p-2 text-center border  border-gray-600">
                   <button
                     onClick={handleBuy(
                       seller.walletId,
                       seller.price,
                       seller.falseValue
                     )}
-                    className="mx-3 text-black bg-white p-2 rounded-full font-white "
+                    className="mx-3 text-sm text-black bg-white p-1.5 rounded-full font-white "
                   >
                     Buy now
                   </button>

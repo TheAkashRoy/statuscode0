@@ -18,7 +18,7 @@ const Landing = () => {
       <>
      <Link to="/buy"> <button className=' text-sm px-4 py-1 rounded-full bg-white font-semibold'>Buy</button></Link>
    <Link to="/sell"><button className=' text-sm bg-white font-semibold px-4 py-1 rounded-full'>Sell</button></Link>
-      <button onClick={()=>logout()} className='text-xl font-semibold bg-white px-2'>Logout</button></>      ):(
+      <button onClick={()=>logout()} className='text-sm rounded-full font-semibold bg-white px-2'>Logout</button></>      ):(
         <button onClick={()=>loginWithRedirect()}
         className=' text-sm border-[1px] px-4 py-2 rounded-full text-white'>
         Login</button>    )

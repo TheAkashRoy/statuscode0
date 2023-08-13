@@ -109,7 +109,9 @@ const Sell = () => {
 const handleUpdate = async () => {
   console.log("Updating");
   console.log(account,price)
-  const response = await contract.methods.updatePriceByAddress(account , price).send({from:account});
+  console.log("Contract", contract)
+  console.log(await web3.utils.toWei(price.toString() , 'ether'))
+  const response = await contract.methods.updatePriceByAddress(account ,await web3.utils.toWei(price.toString() , 'ether' )).send({from:account});
   console.log(response);
 }
   // if (isLoading) {
@@ -126,7 +128,7 @@ console.log("User details",user);
       <div className='flex gap-3 px-3'>
      <Link to="/"> <button className=' text-sm px-4 py-1 rounded-full bg-white font-semibold'>Home</button></Link>
    <Link to="/buy"><button className=' text-sm bg-white font-semibold px-4 py-1 rounded-full'>Buy</button></Link>
-      <button onClick={()=>logout()} className='text-xl font-semibold bg-white px-2'>Logout</button></div>      )
+      <button onClick={()=>logout()} className='text-sm rounded-full  font-semibold bg-white px-2'>Logout</button></div>      )
   } 
    </div>
      {/*isAuthenticated && (
@@ -165,8 +167,9 @@ console.log("User details",user);
           <button type="submit" onClick={handleUpdate} className='bg-pink-600 shadow-xl text-white font-semibold rounded-full p-2 w-[10vw] items-center mt-2 hover:bg-pink-700'>Update</button>
         </div>
         </div>
-        <div className='flex justify-center items-center'>
-          <img src={illu} alt="illustration" className=' w-[85%] mt-10'/>
+        <div className='flex flex-col justify-center items-center'>
+          <img src={illu} alt="illustration" className=' w-[80%]'/>
+          <a href="https://theakashroy-statuscode0-streamlitapx-9x62kk.streamlit.app/" about='_blank'><button className=' text-sm p-3 rounded-full bg-white font-semibold mt-5'>View Stats</button></a>
         </div>
       </div>
       </div>
