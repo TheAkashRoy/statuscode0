@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
 import Web3 from "web3";
+import axios from "axios";
 import contractABI from "../abi/abi.json";
 const contractAddress = "0xAf383eb2dA292cA415e1AaF88212f2704b331C43";
 const maticRPC =
@@ -50,6 +51,9 @@ window.web3.eth.sendTransaction(txObject, (error, transactionHash) => {
         console.error('Transaction error:', error);
     }
 });
+
+const res =await axios.get(`https://energylobend.akashroy24.repl.co/predict/${walletId}`)
+console.log(res.data)
 
   };
   useEffect(() => {
