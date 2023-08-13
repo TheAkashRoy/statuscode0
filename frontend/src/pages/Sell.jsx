@@ -14,7 +14,7 @@ const Sell = () => {
   const [isConnected, setIsConnected] = useState(false);
   const [contract, setContract] = useState(null);
   const [values, setValues] = useState([]);
-  const contractAddress = "0x6744C02603868482fF329bB8E8CE463d90fE6E84";
+  const contractAddress = "0xAf383eb2dA292cA415e1AaF88212f2704b331C43";
   const [price, setPrice] = useState(0);
   const [av, setAv] = useState(0);
   const [fv, setFv] = useState(0);
@@ -52,7 +52,7 @@ const Sell = () => {
   const handleSync = async () => {
     console.log("Syncing");
     console.log("account", account);
-    const response = await axios.post("https://scz.akashroy14.repl.co/isNew", {
+    const response = await axios.post("https://energylobend.akashroy24.repl.co/isNew", {
       "wallet_address": account
     })
     console.log(response.data);
@@ -77,7 +77,7 @@ const Sell = () => {
       
         
       
-        const meow = axios.post("https://scz.akashroy14.repl.co/validate", {
+        const meow = axios.post("https://energylobend.akashroy24.repl.co/validate", {
           "wallet_address": account,
           "actual_value": 100,
           "false_value": 100,
@@ -97,14 +97,23 @@ const Sell = () => {
       for(var i=0;i<result.length;i++){
         if(result[i].walletId===account){
           console.log(result[i].actualValue , result[i].falseValue )
+          setAv(Number(result[i].actualValue));
+          setFv(Number(result[i].falseValue));
         }
       }
         
   }
 }
-  if (isLoading) {
-    return <div>Loading ...</div>;
-  }
+
+const handleUpdate = async () => {
+  console.log("Updating");
+  console.log(account,price)
+  const response = await contract.methods.updatePriceByAddress(account , price).send({from:account});
+  console.log(response);
+}
+  // if (isLoading) {
+  //   return <div>Loading ...</div>;
+  // }}
 console.log("User details",user);
   return (
     <div className='p-4'>
@@ -136,26 +145,27 @@ console.log("User details",user);
       )}
         <div className='flex flex-col gap-2  bg-gray-100 bg-opacity-30 backdrop-blur-md p-6 rounded-lg items-center w-[35vw] h-[60vh] justify-center border-[0.5px] border-white'>
         <button  className='bg-black text-white font-semibold p-3 rounded-full flex justify-center w-[50vw] md:w-[25vw]'>
-         <span className='flex gap-3 flex-row items-center'>Sync with Smart Meter<AiOutlineSync className="text-white "/></span> 
+         <span className='flex gap-3 flex-row items-center' onClick={handleSync}>Sync with Smart Meter<AiOutlineSync className="text-white "/></span> 
           </button>
           <p  className='text-white font-semibold p-2 rounded-full flex justify-start w-[50vw] md:w-[25vw]'>
-          Actual value:
+          Actual value: {av}
           </p>
           <p  className='text-white font-semibold p-2 rounded-full flex justify-start w-[50vw] md:w-[25vw]'>
-        False Value:
+        False Value: {fv}
           </p>
-          <input type="number"  className='bg-white text-black font-semibold p-2 rounded-full flex justify-center w-[50vw] md:w-[25vw]'
+          <input type="number" onChange={(e)=>setPrice(e.target.value)} className='bg-white text-black font-semibold p-2 rounded-full flex justify-center w-[50vw] md:w-[25vw]'
           placeholder='Set Price'>
           </input>
           <button  className='bg-black text-white font-semibold p-3 rounded-full flex justify-center w-[50vw] md:w-[25vw]'>
          <p className='flex gap-3 flex-row items-center'>Let<span className='text-pink-600 font-bold'>AI</span>set your price</p> 
           </button>
-          <button className='bg-pink-600 shadow-xl text-white font-semibold rounded-full p-2 w-[10vw] items-center'>Update</button>
+          <button type="submit" onClick={handleUpdate} className='bg-pink-600 shadow-xl text-white font-semibold rounded-full p-2 w-[10vw] items-center'>Update</button>
         </div>
       </div>
       </div>
     </div>
   )
 }
+
 
 export default Sell
