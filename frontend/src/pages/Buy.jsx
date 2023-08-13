@@ -87,7 +87,7 @@ window.web3.eth.sendTransaction(txObject, (error, transactionHash) => {
             <Link to="/sell">
               {" "}
               <button className="text-white font-white text-xl">Sell</button>
-            </Link>
+            </Link> 
             <button
               onClick={() => logout()}
               className="text-xl font-semibold bg-white p-3"
