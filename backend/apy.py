@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-st.title("-----------------------------------EnergyLo-----------------------------------")
+st.title("--------------------------------EnergyLo------------------------------")
 st.header("Decentralized Transaction Ledger")
 
 # df = pd.DataFrame(
