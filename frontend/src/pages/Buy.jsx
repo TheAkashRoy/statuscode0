@@ -91,8 +91,9 @@ console.log(res.data)
        <button onClick={()=>logout()} className='text-sm rounded-full  font-semibold bg-white px-2'>Logout</button></div>      )
    } 
     </div>
-      <div className="flex justify-center items-center">
-        <table className=" w-[75%] bg-gray-700 font-semibold  mt-28 text-white border border-white">
+      <div className="flex flex-col justify-center items-center mt-20 gap-6">
+        <h1 className="text-white text-2xl font-bold">Buy Energies</h1>
+        <table className=" w-[75%] bg-gray-700 font-semibold text-white border border-white">
           <thead className="">
             <tr>
               <th className="p-2 border  border-gray-600">Wallet Address</th>
@@ -116,7 +117,7 @@ console.log(res.data)
                       seller.price,
                       seller.falseValue
                     )}
-                    className="mx-3 text-sm text-black bg-white p-1.5 rounded-full font-white "
+                    className="mx-3 text-sm text-black bg-white p-2 rounded-full font-white hover:bg-black hover:text-white "
                   >
                     Buy now
                   </button>
