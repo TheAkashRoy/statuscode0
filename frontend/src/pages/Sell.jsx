@@ -134,8 +134,8 @@ console.log("User details",user);
           <h2 className='text-white'>{user.name}</h2>
         </div>
      )*/}
-      <div className="mt-10 ml-16  font-semibold ">
-      <div className='flex flex-row gap-5'>
+      <div className="mt-10 ml-16 font-semibold px-10">
+      <div className='flex flex-row gap-20'>
         <div className='flex flex-col gap-5'>
         {isConnected ? (
         <>
@@ -166,7 +166,7 @@ console.log("User details",user);
         </div>
         </div>
         <div className='flex justify-center items-center'>
-          <img src={illu} alt="illustration" className='h-max w-[55%] mt-10'/>
+          <img src={illu} alt="illustration" className=' w-[85%] mt-10'/>
         </div>
       </div>
       </div>
