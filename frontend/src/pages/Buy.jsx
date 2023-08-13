@@ -77,7 +77,7 @@ window.web3.eth.sendTransaction(txObject, (error, transactionHash) => {
   return (
     <div className="p-4 ">
       <div className="bg-gray-900 flex p-2 justify-between items-center rounded-full">
-        <h1 className="text-white font-white text-3xl px-4">ENERGYLO</h1>
+        <h1 className="text-white font-white text-xl px-4 font-bold">ENERGYLO.</h1>
         {isAuthenticated && (
           <div className="flex gap-3">
             <Link to="/">
@@ -97,7 +97,7 @@ window.web3.eth.sendTransaction(txObject, (error, transactionHash) => {
           </div>
         )}
       </div>
-      <div className="">
+      <div className="flex justify-center">
         <table className="mt-4 w-[75%] bg-gray-700 font-semibold text-white border border-white">
           <thead className="border-2 border-white">
             <tr>
@@ -122,7 +122,7 @@ window.web3.eth.sendTransaction(txObject, (error, transactionHash) => {
                       seller.price,
                       seller.falseValue
                     )}
-                    className="mx-3 text-black bg-white p-2 rounded-full font-white "
+                    className="mx-3 text-black bg-white p-2 rounded-full text-sm"
                   >
                     Buy now
                   </button>
