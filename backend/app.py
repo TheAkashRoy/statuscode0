@@ -1,12 +1,14 @@
 from flask import Flask, request
 from flask_cors import CORS
 import pymongo
-
+import matlab.engine
 # cySFrQASlOiQf2pt
 
-mongo_URI = "mongodb+srv://9akashroy:AkoxJp6aONZMqpGP@cluster0.pad3mfx.mongodb.net/?retryWrites=true&w=majority"
+mongo_URI = "mongodb+srv://9akashroy:AJp6aONZMqpGP@cluster0.pad3mfx.mongodb.net/?retryWrites=true&w=majority"
 app = Flask(__name__)
 CORS(app)
+eng = matlab.engine.start_matlab()
+
 
 cluster = pymongo.MongoClient(mongo_URI)
 db = cluster["UserInfo"]
@@ -74,6 +76,11 @@ def dbupdate():
   })
   return "ok"
 
+@app.route('/matlab')
+def call_matlab():
+    result = eng.mat()
+    return result
+  
 # import string
 # import random
  
