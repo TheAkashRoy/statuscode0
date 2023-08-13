@@ -17,7 +17,7 @@ const Buy = () => {
   const [isConnected, setIsConnected] = useState(false);
   const [contract, setContract] = useState(null);
   const [seller, setSeller] = useState([{}]);
-
+  const[success,setSuccess]=useState(false)
   const handleBuy = (walletId, price, actualValue) => async () => {
     if (window.ethereum) {
       window.web3 = new Web3(window.ethereum);
@@ -46,11 +46,15 @@ console.log(txObject)
 window.web3.eth.sendTransaction(txObject, (error, transactionHash) => {
     if (!error) {
         console.log('Transaction sent:', transactionHash);
+        
         // You can listen for transaction confirmation events or do other things here
     } else {
         console.error('Transaction error:', error);
     }
-});
+}).then((res)=>{
+  setSuccess(true);
+}
+);
 
 const res =await axios.get(`https://energylobend.akashroy24.repl.co/predict/${walletId}`)
 console.log(res.data)
@@ -92,7 +96,7 @@ console.log(res.data)
    } 
     </div>
       <div className="flex flex-col justify-center items-center mt-20 gap-6">
-        <h1 className="text-white text-2xl font-bold">Buy Energies</h1>
+        <h1 className="text-white text-2xl font-bold">Start Buying here</h1>
         <table className=" w-[75%] bg-gray-700 font-semibold text-white border border-white">
           <thead className="">
             <tr>
@@ -126,6 +130,11 @@ console.log(res.data)
             ))}
           </tbody>
         </table>
+       <div>
+       { success &&(
+        <div className='bg-green-700 text-white p-2 rounded-full'>Transaction Successful</div>
+      )}
+       </div>
       </div>
     </div>
   );
